@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSafe | Cybersecurity Education</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+    <a class="logo" href="#">
+        <span class="logo-icon">⬡</span>
+        CyberSafe
+    </a>
+    <span>Twoje bezpieczeństwo zaczyna się tutaj</span>
+</header>
+    <main class="container">
+        <section class="hero">
+            <p class="eyebrow">CYBERSECURITY EDUCATION</p>
+            <h1>Dbaj o swoje <span>cyfrowe bezpieczeństwo.</span></h1>
+            <p>Poznaj zasady tworzenia silnych haseł i sprawdź swoją wiedzę.</p>
+        </section>
+
+        <section class="modules">
+            <article class="card">
+                <div class="card-icon">⌑</div>
+                <h2>Password Lab</h2>
+                <p>Twórz silne hasła i poznawaj ich najważniejsze cechy.</p>
+                <button data-module="password">Otwórz moduł</button>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">◈</div>
+                <h2>Security Quiz</h2>
+                <p>Sprawdź swoją wiedzę na temat bezpieczeństwa w sieci.</p>
+                <button data-module="quiz">Rozpocznij quiz</button>
+            </article>
+        </section>
+
+        <section id="workspace" class="workspace" hidden>
+            <h2 id="module-title"></h2>
+            <p id="module-description"></p>
+            <button id="back-button" class="secondary">Wróć do menu</button>
+        </section>
+    </main>
+
+    <footer>CyberSafe · Projekt edukacyjny</footer>
+</body>
+</html>
