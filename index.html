@@ -1,58 +1,77 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CyberSafe | Cybersecurity Education</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
-</head>
-<body>
-<header class="topbar">
-    <a class="logo" href="#">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="logo" href="#">
         <span class="logo-icon">⬡</span>
         CyberSafe
-    </a>
-    <span>Twoje bezpieczeństwo zaczyna się tutaj</span>
-</header>
+      </a>
+      <span>Twoje bezpieczeństwo zaczyna się tutaj</span>
+    </header>
     <main class="container">
-        <section class="hero">
-            <p class="eyebrow">CYBERSECURITY EDUCATION</p>
-            <h1>Zadbaj o swoje <span>cyfrowe bezpieczeństwo.</span></h1>
-            <p>Poznaj zasady tworzenia silnych haseł i sprawdź swoją wiedzę.</p>
-        </section>
+      <section class="hero">
+        <p class="eyebrow">CYBERSECURITY EDUCATION</p>
+        <h1>Zadbaj o swoje <span>cyfrowe bezpieczeństwo.</span></h1>
+        <p>Poznaj zasady tworzenia silnych haseł i sprawdź swoją wiedzę.</p>
+      </section>
 
-        <section class="modules">
-            <article class="card">
-                <div class="card-icon">⌑</div>
-                <h2>Password Lab</h2>
-                <p>Stwórz silne hasło i poznaj ich najważniejsze cechy.</p>
-                <button data-module="password">Otwórz moduł</button>
-            </article>
+      <section class="modules">
+        <article class="card">
+          <div class="card-icon">⌑</div>
+          <h2>Password Lab</h2>
+          <p>Stwórz silne hasło i poznaj ich najważniejsze cechy.</p>
+          <button data-module="password">Otwórz moduł</button>
+        </article>
 
-            <article class="card">
-                <div class="card-icon">◈</div>
-                <h2>Security Quiz</h2>
-                <p>Sprawdź swoją wiedzę na temat bezpieczeństwa w sieci.</p>
-                <button data-module="quiz">Rozpocznij quiz</button>
-            </article>
-        </section>
+        <article class="card">
+          <div class="card-icon">◈</div>
+          <h2>Security Quiz</h2>
+          <p>Sprawdź swoją wiedzę na temat bezpieczeństwa w sieci.</p>
+          <button data-module="quiz">Rozpocznij quiz</button>
+        </article>
+      </section>
 
-        
-        <section id="workspace" class="workspace" hidden>
-                <h2 id="module-title"></h2>
-                <p id="module-description"></p>
+      <section class="stats" id="stats">
+        <h2>Twoje statystyki</h2>
 
-                <div id="module-content"></div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-icon">◈</span>
+            <p>Ukończone quizy</p>
+            <strong id="completed-quizzes">0</strong>
+          </div>
 
-                <button id="back-button" class="secondary">
-                Wróć do menu
-                </button>
-        </section>
+          <div class="stat-card">
+            <span class="stat-icon">⌑</span>
+            <p>Najlepszy wynik</p>
+            <strong id="best-score">0%</strong>
+          </div>
 
+          <div class="stat-card">
+            <span class="stat-icon">◎</span>
+            <p>Ostatni wynik</p>
+            <strong id="last-score">—</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="workspace" class="workspace" hidden>
+        <h2 id="module-title"></h2>
+        <p id="module-description"></p>
+
+        <div id="module-content"></div>
+
+        <button id="back-button" class="secondary">Wróć do menu</button>
+      </section>
     </main>
 
     <footer>CyberSafe · Projekt edukacyjny</footer>
-</body>
+  </body>
 </html>
