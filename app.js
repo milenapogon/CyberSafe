@@ -117,6 +117,32 @@ function showPasswordLab() {
                 <div class="password-feedback"
                     id="password-feedback"></div>
             </div>
+            <div class="custom-password-panel">
+    <h3>Sprawdź własne hasło</h3>
+
+    <p>Wpisz hasło, aby sprawdzić jego podstawowe cechy.</p>
+
+    <div class="custom-password-input">
+    <input
+        type="password"
+        id="custom-password"
+        placeholder="Wpisz swoje hasło..."
+        autocomplete="off"
+    >
+</div>
+
+    <p id="custom-strength-label">
+        Oczekiwanie na hasło...
+    </p>
+
+    <div class="custom-strength-track">
+    <div id="custom-strength-fill"></div>
+</div>
+
+    <div id="custom-password-feedback"
+         class="password-feedback">
+    </div>
+</div>
 
             <p class="password-message" id="password-message"
                 aria-live="polite"></p>
@@ -155,6 +181,73 @@ function showPasswordLab() {
 
   generateButton.addEventListener("click", generatePassword);
   copyButton.addEventListener("click", copyPassword);
+  // Analiza własnego hasła podczas wpisywania
+  const customPasswordInput = document.querySelector("#custom-password");
+
+  customPasswordInput.addEventListener("input", () => {
+    const password = customPasswordInput.value;
+    const label = document.querySelector("#custom-strength-label");
+    const feedback = document.querySelector("#custom-password-feedback");
+    const strengthFill = document.querySelector("#custom-strength-fill");
+
+    if (!password) {
+      label.textContent = "Oczekiwanie na hasło...";
+      feedback.textContent = "";
+      strengthFill.style.width = "0%";
+      strengthFill.style.backgroundColor = "transparent";
+      return;
+    }
+
+    const hasLowercase = /[a-z]/.test(password);
+    const hasUppercase = /[A-Z]/.test(password);
+    const hasNumber = /[0-9]/.test(password);
+    const hasSymbol = /[^a-zA-Z0-9]/.test(password);
+
+    let score = 0;
+
+    if (password.length >= 8) score++;
+    if (password.length >= 12) score++;
+    if (hasLowercase) score++;
+    if (hasUppercase) score++;
+    if (hasNumber) score++;
+    if (hasSymbol) score++;
+
+    let strength;
+
+    if (score <= 2) {
+      strength = "Słabe";
+    } else if (score <= 4) {
+      strength = "Umiarkowane";
+    } else {
+      strength = "Silne";
+    }
+
+    label.textContent = `Ocena hasła: ${strength}`;
+
+    const colors = {
+      Słabe: "#e05c69",
+      Umiarkowane: "#f0bd4f",
+      Silne: "#36b982",
+    };
+
+    strengthFill.style.width = `${(score / 6) * 100}%`;
+    strengthFill.style.backgroundColor = colors[strength];
+
+    const tips = [];
+
+    if (password.length < 12) {
+      tips.push("Użyj co najmniej 12 znaków.");
+    }
+
+    if (!hasLowercase) tips.push("Dodaj małe litery.");
+    if (!hasUppercase) tips.push("Dodaj wielkie litery.");
+    if (!hasNumber) tips.push("Dodaj cyfry.");
+    if (!hasSymbol) tips.push("Dodaj znaki specjalne.");
+
+    feedback.textContent = tips.length
+      ? tips.join(" ")
+      : "Hasło spełnia wszystkie podstawowe kryteria.";
+  });
 }
 
 // SECURITY QUIZ
