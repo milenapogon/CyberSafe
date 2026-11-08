@@ -7,6 +7,7 @@ const backButton = document.querySelector("#back-button");
 const modules = document.querySelector(".modules");
 const hero = document.querySelector(".hero");
 updateStats();
+updateHistory();
 
 const moduleContentText = {
   password: {
@@ -330,7 +331,24 @@ function showQuiz() {
     stats.lastScore = percentage;
     stats.bestScore = Math.max(stats.bestScore, percentage);
 
+    // Zapis historii quizów
+    const history = JSON.parse(localStorage.getItem("cyberSafeHistory")) || [];
+
+    history.unshift({
+      score: score,
+      total: quizQuestions.length,
+      percentage: percentage,
+      date: new Date().toLocaleString("pl-PL"),
+    });
+
+    // Zachowujemy maksymalnie 5 ostatnich wyników
+    if (history.length > 5) {
+      history.pop();
+    }
+
     localStorage.setItem("cyberSafeStats", JSON.stringify(stats));
+
+    localStorage.setItem("cyberSafeHistory", JSON.stringify(history));
 
     let resultMessage;
 
@@ -518,4 +536,37 @@ function updateStats() {
 
   document.querySelector("#last-score").textContent =
     stats.completed > 0 ? `${stats.lastScore}%` : "—";
+}
+// Wyświetlanie historii quizów
+function updateHistory() {
+  const historyContainer = document.querySelector("#quiz-history");
+
+  const history = JSON.parse(localStorage.getItem("cyberSafeHistory")) || [];
+
+  if (history.length === 0) {
+    historyContainer.innerHTML = `
+            <p class="history-empty">
+                Nie masz jeszcze żadnych ukończonych quizów.
+            </p>
+        `;
+    return;
+  }
+
+  historyContainer.innerHTML = history
+    .map(
+      (item, index) => `
+        <div class="history-item">
+            <div>
+                <strong>Próba ${history.length - index}</strong>
+                <p>${item.date}</p>
+            </div>
+
+            <div class="history-result">
+                <strong>${item.score}/${item.total}</strong>
+                <span>${item.percentage}%</span>
+            </div>
+        </div>
+    `,
+    )
+    .join("");
 }

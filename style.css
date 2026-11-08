@@ -453,3 +453,75 @@ footer {
   height: 24px;
   display: block;
 }
+
+/* QUIZ HISTORY */
+
+.history {
+    margin-top: 35px;
+}
+
+.history h2 {
+    margin-bottom: 20px;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    background: #141f33;
+    border: 1px solid #2a3954;
+    border-radius: 12px;
+    transition: 0.2s ease;
+}
+
+.history-item:hover {
+    border-color: #3989f7;
+}
+
+.history-item p {
+    margin: 7px 0 0;
+    color: #aab6ce;
+    font-size: 14px;
+}
+
+.history-result {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.history-result strong {
+    color: #eaf2ff;
+    font-size: 18px;
+}
+
+.history-result span {
+    color: #69b7ff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.history-empty {
+    padding: 24px;
+    color: #aab6ce;
+    background: #141f33;
+    border: 1px solid #2a3954;
+    border-radius: 12px;
+}
+
+@media (max-width: 500px) {
+    .history-item {
+        padding: 16px;
+    }
+
+    .history-result {
+        gap: 10px;
+    }
+
+    .history-result span {
+        font-size: 17px;
+    }
+}
