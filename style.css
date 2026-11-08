@@ -165,3 +165,109 @@ footer {
         margin-top: 40px;
     }
 }
+
+/* PASSWORD LAB */
+
+.password-panel {
+    margin-top: 25px;
+    max-width: 650px;
+}
+
+.password-output {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.password-output input {
+    flex: 1;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid #2a3954;
+    border-radius: 9px;
+    background: #0b1120;
+    color: #69b7ff;
+    font-size: 16px;
+}
+
+.password-settings {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.password-option {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #c5d1e5;
+}
+
+.password-option input {
+    accent-color: #3989f7;
+    width: 17px;
+    height: 17px;
+}
+
+.password-length {
+    margin: 20px 0;
+}
+
+.password-length input {
+    width: 100%;
+    accent-color: #3989f7;
+}
+
+.password-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.password-strength {
+    margin-top: 25px;
+    padding: 18px;
+    background: #0b1120;
+    border: 1px solid #2a3954;
+    border-radius: 12px;
+}
+
+.strength-track {
+    height: 8px;
+    margin: 12px 0;
+    background: #293750;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0;
+    background: #3989f7;
+    transition: width 0.3s;
+}
+
+.password-feedback {
+    color: #aab6ce;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.password-message {
+    min-height: 22px;
+    margin-top: 12px;
+    color: #69b7ff;
+    font-size: 14px;
+}
+
+@media (max-width: 500px) {
+    .password-settings {
+        grid-template-columns: 1fr;
+    }
+
+    .password-output {
+        flex-direction: column;
+    }
+}
+
