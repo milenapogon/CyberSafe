@@ -607,17 +607,167 @@ footer {
 }
 
 #eye-icon {
-    stroke: #9bb4d0;
-    width: 21px;
-    height: 21px;
-    transition: stroke 0.2s ease;
+  stroke: #9bb4d0;
+  width: 21px;
+  height: 21px;
+  transition: stroke 0.2s ease;
 }
 
 #eye-icon:hover {
-    stroke: #69b7ff;
+  stroke: #69b7ff;
 }
 
 #custom-password::-ms-reveal {
-    filter: invert(75%) sepia(15%) saturate(600%)
-            hue-rotate(175deg) brightness(100%);
+  filter: invert(75%) sepia(15%) saturate(600%) hue-rotate(175deg)
+    brightness(100%);
+}
+
+/* MOBILE UPDATE */
+
+@media (max-width: 600px) {
+  /* Główna nawigacja */
+  .topbar {
+    padding: 16px 5%;
+    gap: 10px;
+  }
+
+  .topbar > span {
+    font-size: 12px;
+  }
+
+  /* Główna zawartość */
+  .container {
+    width: 90%;
+    margin: 35px auto;
+  }
+
+  .hero {
+    margin-bottom: 30px;
+  }
+
+  h1 {
+    font-size: clamp(30px, 8vw, 40px);
+  }
+
+  /* Karty modułów */
+  .modules {
+    gap: 16px;
+  }
+
+  .card,
+  .workspace {
+    padding: 21px 18px;
+    border-radius: 14px;
+  }
+
+  /* Przyciski */
+  button {
+    min-height: 44px;
+  }
+
+  /* Password Lab */
+  .password-panel,
+  .quiz-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .password-settings {
+    grid-template-columns: 1fr;
+  }
+
+  .password-output {
+    flex-direction: column;
+  }
+
+  .password-output button,
+  .password-actions button {
+    width: 100%;
+  }
+
+  .custom-password-panel {
+    padding: 18px;
+  }
+
+  .custom-password-input {
+    gap: 6px;
+  }
+
+  /* Security Quiz */
+  .quiz-question {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .quiz-answer {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .quiz-result {
+    padding: 24px 16px;
+  }
+
+  .quiz-score {
+    font-size: 40px;
+  }
+
+  /* Statystyki */
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 18px 14px;
+  }
+
+  .stat-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .stat-card strong {
+    font-size: 26px;
+  }
+
+  /* Historia */
+  .history-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .history-result {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  footer {
+    font-size: 13px;
+  }
+}
+
+/* Bardzo wąskie ekrany */
+@media (max-width: 360px) {
+  .container {
+    width: 92%;
+  }
+
+  .card,
+  .workspace {
+    padding: 18px 14px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card:last-child {
+    grid-column: auto;
+  }
+
+  .custom-password-panel {
+    padding: 14px;
+  }
 }
