@@ -104,6 +104,11 @@ h1 span {
   font-size: 30px;
 }
 
+.card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
 .card h2 {
   margin-bottom: 8px;
 }
@@ -385,60 +390,66 @@ footer {
 /* USER STATISTICS */
 
 .stats {
-    margin-top: 35px;
+  margin-top: 35px;
 }
 
 .stats h2 {
-    margin-bottom: 22px;
+  margin-bottom: 22px;
 }
 
 .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .stat-card {
-    padding: 25px;
-    background: #141f33;
-    border: 1px solid #2a3954;
-    border-radius: 14px;
-    transition: 0.2s ease;
+  padding: 25px;
+  background: #141f33;
+  border: 1px solid #2a3954;
+  border-radius: 14px;
+  transition: 0.2s ease;
 }
 
 .stat-card:hover {
-    border-color: #3989f7;
-    transform: translateY(-3px);
+  border-color: #3989f7;
+  transform: translateY(-3px);
 }
 
 .stat-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    background: #1b2b45;
-    color: #69b7ff;
-    font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background: #1b2b45;
+  color: #69b7ff;
+  font-size: 22px;
 }
 
 .stat-card p {
-    color: #aab6ce;
-    font-size: 15px;
-    margin-bottom: 10px;
+  color: #aab6ce;
+  font-size: 15px;
+  margin-bottom: 10px;
 }
 
 .stat-card strong {
-    color: #69b7ff;
-    font-size: 30px;
+  color: #69b7ff;
+  font-size: 30px;
 }
 
 /* RESPONSIVE STATISTICS */
 
 @media (max-width: 700px) {
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-icon svg {
+  width: 24px;
+  height: 24px;
+  display: block;
 }
